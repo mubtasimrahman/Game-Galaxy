@@ -1,0 +1,81 @@
+.card-list {
+  display: flex;
+
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  padding-left: 50px;
+}
+
+.card {
+  width: calc(19%);
+  margin-bottom: 20px;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card.image-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: scale(1.01); /* Enlarge effect on hover */
+  box-shadow: 0px 0px 20px 0px rgba(0, 200, 255, 0.164); /* Soft bloom effect on hover */
+}
+
+.item-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-height: 575px) {
+  .card-img-top {
+    height: 75px; /* Set the image height for larger screens */
+  }
+}
+
+@media (min-height: 576px) {
+  .card-img-top {
+    height: 100px; /* Set the image height for larger screens */
+  }
+}
+
+@media (min-height: 768px) {
+  .card-img-top {
+    height: 150px; /* Set the image height for larger screens */
+  }
+}
+
+@media (min-height: 768px) {
+  .card-img-top {
+    height: 250px; /* Set the image height for larger screens */
+  }
+}
+
+@media (min-height: 992px) {
+  .card-img-top {
+    height: 350px; /* Set the image height for larger screens */
+  }
+}
+
+/* Adjust image size for even larger screens */
+@media (min-height: 1200px) {
+  .card-img-top {
+    height: 475px; /* Set the image height for even larger screens */
+  }
+}
+
+@media (min-height: 1400px) {
+  .card-img-top {
+    height: 600px; /* Set the image height for even larger screens */
+  }
+}

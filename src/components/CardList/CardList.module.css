@@ -1,0 +1,8 @@
+.light {
+  color: rgba(134, 120, 120, 0.795);
+}
+.dark {
+  color: var(--dark-mode-background);
+}
+
+

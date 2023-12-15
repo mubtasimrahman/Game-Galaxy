@@ -1,0 +1,60 @@
+/* Custom dropdown container */
+.custom-dropdown {
+  position: relative;
+  display: inline-block; /* Allow the container to fit the content width */
+  margin-right: 20px;
+}
+
+/* Custom dropdown menu */
+.custom-dropdown-menu {
+  background-color: rgb(52, 58, 64);
+}
+.custom-dropdown-menu-light {
+  background-color: rgb(255, 255, 255);
+}
+
+.custom-dropdown-menu,
+.custom-dropdown-menu-light {
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  padding: 0;
+  border: none; /* Remove border to avoid the line extending */
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+/* Show dropdown menu */
+.custom-dropdown-menu.show {
+  max-height: 200px; /* Adjust the maximum height as needed */
+  padding: inherit;
+  border: 1px solid rgb(0, 0, 0); /* Add border only when open */
+}
+
+.custom-dropdown-menu-light.show {
+  max-height: 200px; /* Adjust the maximum height as needed */
+  padding: inherit;
+  border: 1px solid #cccccc; /* Add border only when open */
+}
+
+/* Custom dropdown menu items */
+.custom-dropdown-item {
+  opacity: 0;
+  transform: translateY(-150px); /* Initial position above the dropdown */
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: opacity 1.5s ease-in-out, transform 0.7s ease-in-out;
+  display: inline-block; /* Adjust width to content length */
+}
+
+/* Show dropdown items */
+
+.custom-dropdown-menu.show .custom-dropdown-item,
+.custom-dropdown-menu-light.show .custom-dropdown-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}

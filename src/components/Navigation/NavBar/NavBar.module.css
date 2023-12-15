@@ -1,0 +1,128 @@
+:root {
+  --dark-mode: rgba(245, 245, 245, 0.75);
+  --light-mode: rgba(0, 0, 0, 0.75);
+}
+
+.Canvas {
+  background-color: rgba(
+    176,
+    196,
+    222,
+    0.95
+  ); /* Light blue color with transparency */
+}
+.submittedName {
+  color: #1a63b2;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: small-caps;
+}
+
+.lightModeButton {
+  color: var(--light-mode-button);
+  transition: transform 0.2s ease-in-out;
+}
+.lightModeButton:hover {
+  transform: scale(1.1); /* Enlarge effect */
+}
+.darkModeButton {
+  color: var(--dark-mode-button);
+  transition: transform 0.2s ease-in-out;
+}
+.darkModeButton:hover {
+  transform: scale(1.1); /* Enlarge effect */
+}
+@media (max-height: 575px) {
+  .buttonSpacing {
+    margin-left: -10px; /* Change this value as needed */
+  }
+}
+
+/* Adjust margin for medium screens */
+@media (min-width: 576px) {
+  .buttonSpacing {
+    margin-left: 0px; /* Change this value as needed */
+  }
+}
+
+@media (min-width: 768px) {
+  .buttonSpacing {
+    margin-left: 10px; /* Change this value as needed */
+  }
+}
+
+/* Adjust margin for large screens */
+@media (min-width: 992px) {
+  .buttonSpacing {
+    margin-left: 20px; /* Change this value as needed */
+  }
+}
+
+.searchIcon {
+  color: var(--dark-mode-button);
+}
+.searchBox {
+  display: inline-flex; /* Use inline-flex to stack elements horizontally */
+  align-items: center;
+  padding: 10px;
+  height: 50px;
+}
+
+/* Search button */
+.btnSearch {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Input field */
+.inputSearchDark,
+.inputSearchLight {
+  width: 0; /* Initially set the width to 0 */
+  border-style: none;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  transition: all 0.5s ease-in-out;
+  background-color: transparent;
+}
+.inputSearchLight {
+  color: var(--light-mode);
+}
+.inputSearchDark {
+  color: var(--dark-mode);
+}
+
+.inputSearchDark::placeholder,
+.inputSearchLight::placeholder {
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 10;
+}
+.inputSearchDark::placeholder {
+  color: rgba(245, 245, 245, 0.5);
+}
+.inputSearchLight::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* Focus styles */
+.btnSearch:focus ~ .inputSearchDark,
+.inputSearchDark:focus,
+.btnSearch:focus ~ .inputSearchLight,
+.inputSearchLight:focus {
+  width: 300px;
+  padding-right: 40px; /* Adjust padding for expanded input */
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 1.5);
+}
+.btnSearch:focus ~ .inputSearchDark,
+.inputSearchDark:focus {
+  border-bottom: 1px solid var(--dark-mode);
+}
+
+.btnSearch:focus ~ .inputSearchLight,
+.inputSearchLight:focus {
+  border-bottom: 1px solid var(--light-mode);
+}

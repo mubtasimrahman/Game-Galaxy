@@ -1,0 +1,23 @@
+.list-group-item {
+  margin: 4px 4px 4px 4px;
+  display: flex; /* Use flexbox to align items */
+  justify-content: space-between; /* Add space between the text and buttons */
+  align-items: center; /* Vertically center items within the list item */
+}
+
+/* Vertically center the buttons within the list item */
+.list-group-item .item-buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Add some margin between the buttons for spacing */
+.list-group-item .item-buttons button {
+  margin-left: 5px; /* Adjust as needed for spacing */
+}
+
+.list-group-item:hover {
+  transform: scale(1.01); /* Enlarge effect */
+  box-shadow: 0px 0px 20px 0px rgba(0, 200, 255, 0.164); /* Soft bloom effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add a transition for smooth animation */
+}

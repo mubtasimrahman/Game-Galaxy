@@ -1,0 +1,34 @@
+{
+  "reviews": [
+    {
+      "userName": "Abalu",
+      "comment": "gdfgdfg",
+      "rating": "2",
+      "id": "7rau8ydm9whlmztsqyo"
+    },
+    {
+      "userName": "safasf",
+      "comment": "gdfgdfgdfgdfg",
+      "rating": 0,
+      "id": "2b68s2ib7rilmzu27ao"
+    },
+    {
+      "userName": "Hegagugu",
+      "comment": "afsfasf",
+      "rating": 0,
+      "id": "uh2azzw8aclmzub4pi"
+    },
+    {
+      "id": "00a1614xi6k1fln3omvj1",
+      "userName": "safasf",
+      "comment": "Dkjhsmkbasj",
+      "rating": 0
+    },
+    {
+      "id": "7w4j52kwozoln5nhhzj",
+      "userName": "safasf",
+      "comment": "asdADASF",
+      "rating": "4"
+    }
+  ]
+}

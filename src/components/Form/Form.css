@@ -1,0 +1,7 @@
+#Form1,
+#Form2 {
+  max-width: 400px;
+}
+.flex-fill {
+  padding: calc(5%);
+}

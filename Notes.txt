@@ -1,0 +1,16 @@
+Type inferencing= Type inference refers to the process by which a programming language's compiler 
+or interpreter automatically determines the data type of a variable based on its usage in the code. 
+This process occurs at compile time or runtime, depending on whether the language is statically 
+typed or dynamically typed.
+Explicit typing= Languages which do not perform type coercions(normally, as languages like Java has 
+it for example when concatenation an int to a String) as in they do not automatically 
+perform data type conversions to make operations compatible. Languages which also use type 
+annotations.
+Implicit typing= Does not need type annotations. Has both type inferencing and type coercion.
+Static typing= Types determined at compile time. Mostly this also means the language is compiled
+instead of being interpreted. Explicit typing is REQUIRED.
+Dynamic typing= Types determined at runtime. Mostly this also means the language is interpreted
+. Can be explicitly(python) or implicitly typed(JS).
+Compiled Languages= Whole file converted to object/binary file at once. This is the compilation stage.
+Then this file is ran.
+Interpreted Languages= Line by line, an interpreter directly translates human code to machine code.

@@ -1,0 +1,16 @@
+.hollowIcon {
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 50%;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  color: rgb(70, 81, 133);
+
+  /* Default background color */
+  background-color: lightblue;
+}
+
+.hollowIcon:hover {
+  /* Hovered background color */
+  background-color: yellow;
+  color: red;
+}
