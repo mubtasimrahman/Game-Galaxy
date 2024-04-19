@@ -20,5 +20,5 @@ jobs:
       run: npm install
 
     - name: Run Website
-      run: npm run dev
+      run: npm run build
 
