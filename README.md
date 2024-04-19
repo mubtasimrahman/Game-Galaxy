@@ -50,7 +50,11 @@ Cntrl-click link or use shortcut "o" in console
 - [ ] On site live chat functionality
 
 ***This Project was made possible due to the hard work of devs present at RAWG and ITAD***
+</br>
+
 [Visit RAWG](https://rawg.io/) 🚀
+</br>
+
 [Visit ITAD](https://isthereanydeal.com/) 🚀
 
 
