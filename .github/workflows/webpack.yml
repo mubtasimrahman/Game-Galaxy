@@ -19,8 +19,6 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Compile TypeScript
-      run: tsc
+    - name: Run Website
+      run: vite
 
-    - name: Run Webpack
-      run: npx webpack
