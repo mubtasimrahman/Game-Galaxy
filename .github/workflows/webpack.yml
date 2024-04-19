@@ -20,5 +20,5 @@ jobs:
       run: npm install
 
     - name: Run Website
-      run: vite
+      run: npm run dev
 
