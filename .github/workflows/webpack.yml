@@ -24,13 +24,17 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Install rsync
+      run: |
+        choco install rsync -y
+
     - name: Deploy
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: JamesIves/github-pages-deploy-action@4.1.7
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: dist
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        folder: dist
 
         
 
