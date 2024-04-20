@@ -1,12 +1,14 @@
 {
   "name": "my-app",
+  "homepage":"https://mubtasimrahman.github.io/Game-Galaxy/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",

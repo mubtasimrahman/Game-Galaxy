@@ -45,7 +45,7 @@ function DetailsPage() {
   }, [location.state]);
 
   const fetchPlain = (gameName: string) => {
-    const cleanTitle = gameName.replace(/\(\d+\)/, "");
+    const cleanTitle = gameName.replace(/\(\d+\)/, "").trim();
 
     axios
       .get("https://api.isthereanydeal.com/v02/game/plain/", {
