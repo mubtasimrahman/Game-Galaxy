@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build with Webpack
 
 on:
   push:
@@ -11,19 +11,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout
     - uses: actions/checkout@v3
 
     - name: Install dependencies
       run: npm install
 
-    - name: Build
+    - name: Run Website
       run: npm run build
-
-    - name: Deploy
-      run: 
-        git config --global user.name "Mubtasim Rahman"
-        git config --global user.email "mubtasim.rahman.mr@gmail.com"
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-        npm run deploy
 
