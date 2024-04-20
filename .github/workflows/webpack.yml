@@ -16,6 +16,10 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run Website
-      run: npm run build
+    - name: Deploy
+      run: |
+        git config --global user.name 'Mubtasim Rahman'
+        git config --global user.email 'mubtasm.rahman.mr@gmail.com'
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}    
+        npm run deploy
 
