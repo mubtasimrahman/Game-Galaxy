@@ -28,7 +28,7 @@ function App() {
   const handleThemeChange = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
-console.log("Some Change")
+
   return (
     <div className={theme === "dark" ? styles.darkMode : styles.lightMode}>
       <ThemeContext.Provider value={{ theme, setTheme }}>
