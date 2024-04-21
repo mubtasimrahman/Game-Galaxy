@@ -18,15 +18,17 @@ jobs:
       run: npm install
 
     - name: Build
-      run: npm run build
+      run: |
+        npm run build
+        sed -i 's|<head>|<head><base href="/Game-Galaxy/">|g' dist/index.html
 
     - name: Archive artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
+        name: build-artifact
         path: dist
 
   deploy:
-
     permissions:
       contents: write
       pages: write
@@ -41,10 +43,15 @@ jobs:
     needs: build
     steps:
 
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: build-artifact
+        path: dist
+
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-
 
 
