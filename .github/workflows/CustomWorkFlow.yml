@@ -23,12 +23,12 @@ jobs:
         sed -i 's|<head>|<head><base href="/Game-Galaxy/">|g' dist/index.html
 
     - name: Archive artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-pages-artifact@v3
       with:
-        name: build-artifact
         path: dist
 
   deploy:
+
     permissions:
       contents: write
       pages: write
@@ -42,12 +42,6 @@ jobs:
 
     needs: build
     steps:
-
-    - name: Download artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: build-artifact
-        path: dist
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
