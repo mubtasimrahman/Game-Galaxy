@@ -20,12 +20,7 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Modify index.html
-      run: |
-        sed -i 's|<base href="/"|<base href="/Game-Galaxy/"|' dist/index.html
-        sed -i 's|href="/assets/|href="/Game-Galaxy/assets/|g' dist/index.html
-        sed -i 's|src="/assets/|src="/Game-Galaxy/assets/|g' dist/index.html
-        sed -i 's|<script type="module" crossorigin src="/assets/|<script type="module" crossorigin src="/Game-Galaxy/assets/|' dist/index.html
+   
 
     - name: Archive artifact
       uses: actions/upload-pages-artifact@v3
