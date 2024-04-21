@@ -32,6 +32,9 @@ jobs:
       contents: write
       pages: write
       id-token: write
+    
+    environment:
+      name: github-pages
 
     runs-on: windows-latest
 
@@ -42,7 +45,6 @@ jobs:
       uses: actions/deploy-pages@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifact-path: dist
 
 
 
