@@ -26,7 +26,7 @@ jobs:
         sed -i 's|href="/assets/|href="/Game-Galaxy/assets/|g' dist/index.html
         sed -i 's|src="/assets/|src="/Game-Galaxy/assets/|g' dist/index.html
 
-     - name: Archive artifact
+    - name: Archive artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: dist
