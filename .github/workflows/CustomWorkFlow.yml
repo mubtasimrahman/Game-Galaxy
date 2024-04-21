@@ -32,6 +32,7 @@ jobs:
         path: dist
 
   deploy:
+
     permissions:
       contents: write
       pages: write
@@ -43,8 +44,12 @@ jobs:
 
     runs-on: windows-latest
 
-    
+    needs: build
+    steps:
+
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+
+
