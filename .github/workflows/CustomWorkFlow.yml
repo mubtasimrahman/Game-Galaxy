@@ -22,9 +22,8 @@ jobs:
 
     - name: Modify index.html
       run: |
-        sed -i 's|<base href="/"|<base href="/Game-Galaxy/"|' dist/index.html
-        sed -i 's|href="/assets/|href="/Game-Galaxy/assets/|g' dist/index.html
-        sed -i 's|src="/assets/|src="/Game-Galaxy/assets/|g' dist/index.html
+        sed -i 's|href="/assets/|href="/Game-Galaxy/assets/|g' 
+        sed -i 's|src="/assets/|src="/Game-Galaxy/assets/|g' 
 
 
     - name: Archive artifact
