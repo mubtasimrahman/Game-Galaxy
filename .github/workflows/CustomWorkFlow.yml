@@ -14,9 +14,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Setup Node
-      uses: actions/setup-node@v4
-
     - name: Install dependencies
       run: npm install
 
@@ -45,7 +42,7 @@ jobs:
       name: github-pages
       url: "https://mubtasimrahman.github.io/Game-Galaxy"
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     needs: build
     steps:
