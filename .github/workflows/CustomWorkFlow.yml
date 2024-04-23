@@ -42,7 +42,7 @@ jobs:
       name: github-pages
       url: "https://mubtasimrahman.github.io/Game-Galaxy"
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     needs: build
     steps:
