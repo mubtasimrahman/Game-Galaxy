@@ -29,7 +29,7 @@ jobs:
         sed -i 's|src="/assets/|src="/Game-Galaxy/assets/|g' dist/index.html
 
     - name: Setup Pages
-        uses: actions/configure-pages@v4
+      uses: actions/configure-pages@v4
 
 
     - name: Archive artifact
