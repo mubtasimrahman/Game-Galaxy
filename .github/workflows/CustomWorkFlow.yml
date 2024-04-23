@@ -20,10 +20,16 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Setup Pages
+        uses: actions/configure-pages@v4
+
     - name: Modify index.html
       run: |
         sed -i 's|href="/assets/|href="/Game-Galaxy/assets/|g' dist/index.html
         sed -i 's|src="/assets/|src="/Game-Galaxy/assets/|g' dist/index.html
+
+    - name: Setup Pages
+        uses: actions/configure-pages@v4
 
 
     - name: Archive artifact
