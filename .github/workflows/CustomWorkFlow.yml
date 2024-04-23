@@ -23,6 +23,11 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Modify index.html
+      run: |
+        sed -i 's|href="/assets/|href="/Game-Galaxy/assets/|g' dist/index.html
+        sed -i 's|src="/assets/|src="/Game-Galaxy/assets/|g' dist/index.html
+
 
     - name: Archive artifact
       uses: actions/upload-pages-artifact@v3
@@ -46,7 +51,7 @@ jobs:
     steps:
 
     - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
+      uses: peaceiris/actions-gh-pages@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
 
