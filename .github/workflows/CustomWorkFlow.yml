@@ -8,22 +8,20 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
 
     - name: Install dependencies
       run: npm install
 
     - name: Build
       run: npm run build
-
-    - name: Modify index.html
-      run: |
-        sed -i 's|href="/assets/|href="/Game-Galaxy/assets/|g' dist/index.html
-        sed -i 's|src="/assets/|src="/Game-Galaxy/assets/|g' dist/index.html
 
 
     - name: Archive artifact
@@ -42,7 +40,7 @@ jobs:
       name: github-pages
       url: "https://mubtasimrahman.github.io/Game-Galaxy"
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     needs: build
     steps:
