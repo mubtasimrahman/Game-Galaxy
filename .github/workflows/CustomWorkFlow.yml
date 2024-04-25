@@ -2,42 +2,35 @@ name: Build and Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build
-      run: npm run build
+      - name: Build
+        run: npm run build
 
-    - name: Modify index.html
-      run: |
-        sed -i 's|href="/assets/|href="/Game-Galaxy/assets/|g' dist/index.html
-        sed -i 's|src="/assets/|src="/Game-Galaxy/assets/|g' dist/index.html
-
-
-    - name: Archive artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: dist
+      - name: Archive artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   deploy:
-
     permissions:
       contents: write
       pages: write
       id-token: write
-    
+
     environment:
       name: github-pages
       url: "https://mubtasimrahman.github.io/Game-Galaxy"
@@ -46,8 +39,7 @@ jobs:
 
     needs: build
     steps:
-
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
