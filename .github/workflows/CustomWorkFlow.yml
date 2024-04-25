@@ -40,7 +40,7 @@ jobs:
     
     environment:
       name: github-pages
-      url: "https://mubtasimrahman.github.io/Game-Galaxy"
+      url: "https://mubtasimrahman.github.io/"
 
     runs-on: windows-latest
 
