@@ -3,7 +3,7 @@ import { useState } from "react";
 import ReviewPage from "../Pages/ReviewPage";
 import SignUpPage from "../Pages/SignUpPage";
 import DetailsPage from "../Pages/DetailsPage";
-import { Route, Routes, HashRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { QuantityContext } from "../contexts/QuantityContext";
 import { PageContext } from "../contexts/PageContext";
@@ -34,7 +34,7 @@ function App() {
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <QuantityContext.Provider value={{ gameQuantities, setGameQuantities }}>
           <PageContext.Provider value={{ currentPage, setCurrentPage }}>
-            <HashRouter>
+            <BrowserRouter>
               <Routes>
                 <Route
                   path="/"
@@ -75,7 +75,7 @@ function App() {
                 ></Route>
                 <Route />
               </Routes>
-            </HashRouter>
+            </BrowserRouter>
           </PageContext.Provider>
         </QuantityContext.Provider>
       </ThemeContext.Provider>
