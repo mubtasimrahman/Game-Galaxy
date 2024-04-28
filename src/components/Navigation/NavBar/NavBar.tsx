@@ -1,9 +1,11 @@
 import HamBurger from "../HamBurger/HamBurger";
 import { ChangeEvent, MouseEventHandler, ReactNode, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import { AiOutlineShoppingCart } from "react-icons/Ai";
 import { HiHome } from "react-icons/Hi";
 import { BiSolidCommentDots } from "react-icons/Bi";
+import { BiSolidDonateHeart } from "react-icons/Bi";
 import { MdLightMode } from "react-icons/Md";
 import { MdNightlight } from "react-icons/Md";
 import { FaSearch } from "react-icons/Fa";
@@ -19,7 +21,8 @@ interface Props {
   userName: string | undefined;
   RemoveAll: () => void;
   handleThemeChange: () => void;
-   handleNavigateV2:MouseEventHandler<HTMLButtonElement>;
+  handleNavigateV2: MouseEventHandler<HTMLButtonElement>;
+  // handleNavigateV3: MouseEventHandler<HTMLButtonElement>;
   handleNavigate: MouseEventHandler<HTMLButtonElement>;
 
   handleGameSearch: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -32,9 +35,8 @@ function NavBar({
   RemoveAll,
   handleThemeChange,
   handleNavigate,
-
   handleGameSearch,
-   handleNavigateV2
+  handleNavigateV2,
 }: Props) {
   const themeContext = useContext(ThemeContext);
   if (!themeContext) {
@@ -46,6 +48,9 @@ function NavBar({
   if (!pageContext) {
     throw new Error("PageContext is not available");
   }
+
+  const navigate = useNavigate();
+
   const { currentPage, setCurrentPage } = pageContext;
 
   const CartItemSort = (item: string, index: number) => {
@@ -83,7 +88,11 @@ function NavBar({
         >
           <div className="container-fluid  ">
             <div>
-              <button className="btn " type="button" onClick={handleNavigate}>
+              <button
+                className={`btn ${styles.buttonSpacingRight}`}
+                type="button"
+                onClick={handleNavigate}
+              >
                 {currentPage === "/" ? (
                   <BiSolidCommentDots
                     className={
@@ -175,6 +184,19 @@ function NavBar({
 
             <div>{DisplayName()}</div>
             <div>
+              {currentPage === "/" && (
+                <button className="btn " type="button" onClick={() => navigate("/Paypal")}>
+                  <BiSolidDonateHeart
+                    className={
+                      theme === "dark"
+                        ? styles.darkModeButton
+                        : styles.lightModeButton
+                    }
+                    size={35}
+                  />
+                </button>
+              )}
+
               <button
                 className="btn "
                 type="button"
@@ -196,7 +218,7 @@ function NavBar({
                 )}
               </button>
               <button
-                className={`btn ${styles.buttonSpacing}`}
+                className={`btn ${styles.buttonSpacingLeft}`}
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasCart"

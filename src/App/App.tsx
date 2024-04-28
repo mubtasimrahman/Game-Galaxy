@@ -3,6 +3,7 @@ import { useState } from "react";
 import ReviewPage from "../Pages/ReviewPage";
 import SignUpPage from "../Pages/SignUpPage";
 import DetailsPage from "../Pages/DetailsPage";
+import PayPal from "../components/PayPal/PayPal";
 import { Route, Routes, HashRouter } from "react-router-dom";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { QuantityContext } from "../contexts/QuantityContext";
@@ -68,6 +69,10 @@ function App() {
                       setCurrentPage={setCurrentPage}
                     />
                   }
+                ></Route>
+                <Route
+                  path="/PayPal"
+                  element={<PayPal></PayPal>}
                 ></Route>
                 <Route
                   path="/details/:id"

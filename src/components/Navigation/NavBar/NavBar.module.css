@@ -34,30 +34,37 @@
   transform: scale(1.1); /* Enlarge effect */
 }
 @media (max-height: 575px) {
-  .buttonSpacing {
-    margin-left: -10px; /* Change this value as needed */
+  .buttonSpacingLeft {
+    margin-left: -10px;
+    margin-right: -10px;
   }
 }
 
-/* Adjust margin for medium screens */
 @media (min-width: 576px) {
-  .buttonSpacing {
-    margin-left: 0px; /* Change this value as needed */
+  .buttonSpacingLeft,
+  .buttonSpacingRight {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
 @media (min-width: 768px) {
-  .buttonSpacing {
-    margin-left: 10px; /* Change this value as needed */
+  .buttonSpacingLeft,
+  .buttonSpacingRight {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 
-/* Adjust margin for large screens */
 @media (min-width: 992px) {
-  .buttonSpacing {
-    margin-left: 20px; /* Change this value as needed */
+  .buttonSpacingLeft,
+  .buttonSpacingRight {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
+
+
 
 .searchIcon {
   color: var(--dark-mode-button);
