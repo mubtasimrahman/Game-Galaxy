@@ -7,10 +7,18 @@ import styles from "./CardList.module.css";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useContext } from "react";
 
+interface Short_Screenshots{
+  id:number;
+  image:string
+}
+
 export interface Game {
   name: string;
   popularity: number;
   background_image: string;
+  short_screenshots : Short_Screenshots[];
+  released: string;
+
 }
 
 interface Props {

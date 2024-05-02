@@ -10,6 +10,7 @@ import { MdLightMode } from "react-icons/Md";
 import { MdNightlight } from "react-icons/Md";
 import { FaSearch } from "react-icons/Fa";
 import { SiGnuprivacyguard } from "react-icons/Si";
+import { Tooltip } from "react-tooltip";
 import "./NavBar.css";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 import { PageContext } from "../../../contexts/PageContext";
@@ -22,7 +23,6 @@ interface Props {
   RemoveAll: () => void;
   handleThemeChange: () => void;
   handleNavigateV2: MouseEventHandler<HTMLButtonElement>;
-  // handleNavigateV3: MouseEventHandler<HTMLButtonElement>;
   handleNavigate: MouseEventHandler<HTMLButtonElement>;
 
   handleGameSearch: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -92,7 +92,17 @@ function NavBar({
                 className={`btn ${styles.buttonSpacingRight}`}
                 type="button"
                 onClick={handleNavigate}
+                data-tooltip-id="first-tooltip"
+                data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                data-tooltip-content={
+                  currentPage === "/"
+                    ? "Leave a Review"
+                    : currentPage === "/Review"
+                    ? "Go Back to HomePage"
+                    : "Go Back to HomePage"
+                }
               >
+                <Tooltip id="first-tooltip" />
                 {currentPage === "/" ? (
                   <BiSolidCommentDots
                     className={
@@ -123,7 +133,17 @@ function NavBar({
                 )}
               </button>
 
-              <button className="btn " type="button" onClick={handleNavigateV2}>
+              <button
+                className="btn "
+                type="button"
+                onClick={handleNavigateV2}
+                data-tooltip-id="second-tooltip"
+                data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                data-tooltip-content={
+                  currentPage === "/" ? "Sign Up or Log In" : "Leave a Review"
+                }
+              >
+                <Tooltip id="second-tooltip" />
                 {currentPage === "/" ? (
                   <SiGnuprivacyguard
                     className={
@@ -156,7 +176,12 @@ function NavBar({
 
               {currentPage === "/" ? (
                 <div className={`${styles.searchBox} `}>
-                  <button className={styles.btnSearch}>
+                  <button
+                    className={styles.btnSearch}
+                    data-tooltip-id="third-tooltip"
+                    data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                    data-tooltip-content="Search Games"
+                  >
                     <FaSearch
                       className={
                         theme === "dark"
@@ -166,6 +191,7 @@ function NavBar({
                       size={35}
                     />
                   </button>
+                  <Tooltip id="third-tooltip" />
                   <input
                     type="text"
                     className={
@@ -185,16 +211,26 @@ function NavBar({
             <div>{DisplayName()}</div>
             <div>
               {currentPage === "/" && (
-                <button className="btn " type="button" onClick={() => navigate("/Paypal")}>
-                  <BiSolidDonateHeart
-                    className={
-                      theme === "dark"
-                        ? styles.darkModeButton
-                        : styles.lightModeButton
-                    }
-                    size={35}
-                  />
-                </button>
+                <>
+                  <button
+                    className="btn "
+                    type="button"
+                    data-tooltip-id="fourth-tooltip"
+                    data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                    data-tooltip-content="Donate"
+                    onClick={() => navigate("/Paypal")}
+                  >
+                    <BiSolidDonateHeart
+                      className={
+                        theme === "dark"
+                          ? styles.darkModeButton
+                          : styles.lightModeButton
+                      }
+                      size={35}
+                    />
+                  </button>
+                  <Tooltip id="fourth-tooltip" />
+                </>
               )}
 
               <button
@@ -203,7 +239,15 @@ function NavBar({
                 onClick={() => {
                   handleThemeChange();
                 }}
+                data-tooltip-id="fifth-tooltip"
+                data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                data-tooltip-content={
+                  theme === "dark"
+                    ? "Switch Themes - Currently Dark Mode"
+                    : "Switch Themes - Currently Light Mode"
+                }
               >
+                <Tooltip id="fifth-tooltip" />
                 {theme === "light" && (
                   <MdNightlight
                     size={35}
@@ -223,7 +267,11 @@ function NavBar({
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasCart"
                 aria-controls="offcanvasCart"
+                data-tooltip-id="sixth-tooltip"
+                data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                data-tooltip-content="Shopping Cart"
               >
+                <Tooltip id="sixth-tooltip" />
                 <AiOutlineShoppingCart
                   size={35}
                   className={

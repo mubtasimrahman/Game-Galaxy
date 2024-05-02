@@ -3,7 +3,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { Game } from "../components/CardList/CardList";
 import { ThemeContext } from "../contexts/ThemeContext";
-import GameCarousel from "../components/GameCarousel/GameCarousel"
+import GameCarousel from "../components/GameCarousel/GameCarousel";
 
 interface Price {
   price_new: number;
@@ -38,7 +38,9 @@ function DetailsPage() {
   useEffect(() => {
     if (location.state && location.state.game) {
       const gameFromState = location.state.game;
-      console.log(gameFromState)
+      console.log(location);
+      console.log(location.state);
+      console.log(gameFromState);
       setGame(gameFromState);
       fetchPlain(gameFromState.name);
     }
@@ -110,6 +112,15 @@ function DetailsPage() {
         </>
       ) : (
         <p>Loading...</p>
+      )}
+      {game && (
+        <GameCarousel
+          name={game.name}
+          popularity={game.popularity}
+          background_image={game.background_image}
+          short_screenshots={game.short_screenshots}
+          released={game.released}
+        />
       )}
     </div>
   );
