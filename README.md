@@ -60,8 +60,6 @@ Cntrl-click link or use shortcut "o" in console
 
 ***This Project was made possible due to the hard work of devs present at RAWG and ITAD***
 
-</br>
-
 [Visit RAWG](https://rawg.io/) 🚀
 </br>
 
