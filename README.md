@@ -49,7 +49,17 @@ Cntrl-click link or use shortcut "o" in console
 - [ ] User Profile with saved games
 - [ ] On site live chat functionality
 
+## NOTES
+***The version hosted on gh-pages does not have full functionality of dynamic componenets including the forms and reviews, fetching data from a server.***
+
+</br>
+
+***Demo GIFs are not accurate representation of current state of application as it is constantly being updated. For current static version, visit gh-pages link***
+
+</br>
+
 ***This Project was made possible due to the hard work of devs present at RAWG and ITAD***
+
 </br>
 
 [Visit RAWG](https://rawg.io/) 🚀
