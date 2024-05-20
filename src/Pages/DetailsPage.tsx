@@ -6,28 +6,41 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import GameCarousel from "../components/GameCarousel/GameCarousel";
 
 interface Price {
-  price_new: number;
-  price_old: number;
-  price_cut: number;
-  url: string;
-  shop: {
-    id: string;
-    name: string;
+  id: string;
+  current: {
+    shop: {
+      id: number;
+      name: string;
+    };
+    price: {
+      amount: number;
+      amountInt: number;
+      currency: string;
+    };
+    regular: {
+      amount: number;
+      amountInt: number;
+      currency: string;
+    };
+    cut: number;
+    voucher: string | null;
+    flag: string | null;
+    drm: { id: number; name: string }[];
+    platforms: { id: number; name: string }[];
+    timestamp: string;
+    expiry: string | null;
+    url: string;
   };
-  drm: string[];
 }
 
-interface PricesData {
-  list: Price[];
-  urls: {
-    game: string;
-  };
+interface PricesResponse {
+  prices: Price[];
 }
 
 function DetailsPage() {
   const location = useLocation();
   const [game, setGame] = useState<Game | null>(null);
-  const [prices, setPrices] = useState<PricesData | null>(null);
+  const [prices, setPrices] = useState<Price[] | null>([]);
 
   const themeContext = useContext(ThemeContext);
   if (!themeContext) {
@@ -42,44 +55,66 @@ function DetailsPage() {
       console.log(location.state);
       console.log(gameFromState);
       setGame(gameFromState);
-      fetchPlain(gameFromState.name);
+      fetchId(gameFromState.name);
     }
   }, [location.state]);
 
-  const fetchPlain = (gameName: string) => {
+  const fetchId = (gameName: string) => {
     const cleanTitle = gameName.replace(/\(\d+\)/, "").trim();
 
     axios
-      .get("https://api.isthereanydeal.com/v02/game/plain/", {
+      .get("https://api.isthereanydeal.com/games/lookup/v1", {
         params: {
           key: "3283e73041589adafbf3b9cc0072e9d40fb67dd3",
           title: cleanTitle,
         },
       })
       .then((response) => {
-        fetchPrice(response.data.data.plain);
+        console.log(response.data.game.id);
+        fetchPrice(response.data.game.id);
       })
       .catch((error) => {
-        console.error("Error fetching prices:", error);
+        console.error("Error fetching game:", error);
       });
   };
 
-  const fetchPrice = (plain: string) => {
-    axios
-      .get("https://api.isthereanydeal.com/v01/game/prices/", {
-        params: {
-          key: "3283e73041589adafbf3b9cc0072e9d40fb67dd3",
-          plains: plain,
+  const fetchPrice = async (id: string) => {
+    const key = "3283e73041589adafbf3b9cc0072e9d40fb67dd3";
+    const url = `https://api.isthereanydeal.com/games/overview/v2?key=${key}`;
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify([id]), // JSON.stringify ensures the body is sent as JSON
+        headers: {
+          // Intentionally omit 'Content-Type' to make it a simple request
         },
-      })
-      .then((response) => {
-        const pricesData: PricesData = response.data.data[plain];
-        setPrices(pricesData);
-      })
-      .catch((error) => {
-        console.error("Error fetching prices:", error);
       });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data: PricesResponse = await response.json();
+
+      if (!data.prices || data.prices.length === 0) {
+        console.error("No prices found for the game:", data);
+        setPrices(null); // Set null if no prices are found
+        return;
+      }
+
+      const pricesList: Price[] = data.prices;
+
+      setPrices(pricesList);
+    } catch (error) {
+      console.error("Error fetching prices:", error);
+    }
   };
+
+  // Use useEffect to log the state whenever it changes
+  useEffect(() => {
+    console.log(prices); // Log the updated state
+  }, [prices]); // This effect runs whenever `prices` state changes
 
   return (
     <div>
@@ -90,24 +125,25 @@ function DetailsPage() {
             <>
               <h2>Prices:</h2>
               <ul>
-                {prices.list.map((price) => (
-                  <li key={price.url}>
-                    <strong>{price.shop.name}:</strong> $
-                    {price.price_new.toFixed(2)} ({price.price_cut}% off)
+                {prices.map((price) => (
+                  <li key={price.id}>
+                    <strong>{price.current.shop.name}:</strong> $
+                    {price.current.price.amount.toFixed(2)} ({price.current.cut}
+                    % off)
                     <br />
                     <a
-                      href={price.url}
+                      href={price.current.url}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Buy on {price.shop.name}
+                      Buy on {price.current.shop.name}
                     </a>
                   </li>
                 ))}
               </ul>
             </>
           ) : (
-            <p>Loading prices...</p>
+            <p>Game is either free or was not found</p>
           )}
         </>
       ) : (
