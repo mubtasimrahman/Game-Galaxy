@@ -1,10 +1,9 @@
 .card-list {
   display: flex;
-
   flex-wrap: wrap;
   gap: 20px;
   justify-content: flex-start;
-  padding-left: 50px;
+  padding-left: 3%;
 }
 
 .card {
@@ -41,11 +40,17 @@
   .card-img-top {
     height: 75px; /* Set the image height for larger screens */
   }
+  .card-title {
+    font-size: small;
+  }
 }
 
 @media (min-height: 576px) {
   .card-img-top {
     height: 100px; /* Set the image height for larger screens */
+  }
+  .card-title {
+    font-size: smaller;
   }
 }
 
@@ -53,29 +58,37 @@
   .card-img-top {
     height: 150px; /* Set the image height for larger screens */
   }
-}
-
-@media (min-height: 768px) {
-  .card-img-top {
-    height: 250px; /* Set the image height for larger screens */
+  .card-title {
+    font-size: medium;
   }
 }
 
+
+
 @media (min-height: 992px) {
   .card-img-top {
-    height: 350px; /* Set the image height for larger screens */
+    height: 250px; /* Set the image height for larger screens */
+  }
+  .card-title {
+    font-size: large;
   }
 }
 
 /* Adjust image size for even larger screens */
 @media (min-height: 1200px) {
   .card-img-top {
-    height: 475px; /* Set the image height for even larger screens */
+    height: 350px; /* Set the image height for even larger screens */
+  }
+  .card-title {
+    font-size: larger;
   }
 }
 
 @media (min-height: 1400px) {
   .card-img-top {
-    height: 600px; /* Set the image height for even larger screens */
+    height: 550px; /* Set the image height for even larger screens */
+  }
+  .card-title {
+    font-size:x-large;
   }
 }
