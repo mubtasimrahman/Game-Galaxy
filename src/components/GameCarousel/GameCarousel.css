@@ -1,0 +1,12 @@
+.outer-container {
+    max-width: 60%;
+    max-height: 60%;
+    padding:2%
+  }
+  
+.carousel-inner{
+    border-radius: 20px;
+}
+  
+
+  

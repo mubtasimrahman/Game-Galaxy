@@ -5,6 +5,7 @@ import { Game } from "../components/CardList/CardList";
 import { ThemeContext } from "../contexts/ThemeContext";
 import GameCarousel from "../components/GameCarousel/GameCarousel";
 import "./PageStyles/DetailsPage.css";
+import styles from "./PageStyles/DetailsPage.module.css"
 
 interface Price {
   cut: number;
@@ -124,73 +125,83 @@ function DetailsPage() {
   }, [prices]); // This effect runs whenever `prices` state changes
 
   return (
-    <div>
-      {loading ? (
-        <p>Loading prices...</p>
-      ) : game ? (
-        <>
-          <h1>{game.name}</h1>
-          {prices && prices.length > 0 ? (
-            <>
-              <h2>Prices:</h2>
-              <ul className="prices-list">
-                {prices.map((price) => (
-                  <li key={price.url} className="price-item">
-                    <div className="price-details">
-                      <div>
-                        <h3 className="price-shop-name">{price.shop.name}</h3>
-                        <p className="price-info">
-                          <strong>Price:</strong> $
-                          {price.price.amount.toFixed(2)} ({price.cut}% off)
-                        </p>
-                        <p className="price-info">
-                          <strong>Normal Price:</strong> $
-                          {price.regular.amount.toFixed(2)}
-                        </p>
-                        <p className="price-info">
-                          <strong>Platforms:</strong>{" "}
+    <>
+      <h1  className={`heading ${theme==="light"?styles.lightMode:styles.darkMode}`}>{game?.name}</h1>
+      <div className="d-flex justify-content-around">
+        {loading ? (
+          <p>Loading prices...</p>
+        ) : game ? (
+          <>
+            {prices && prices.length > 0 ? (
+              <>
+                <table
+                  className={`table ${
+                    theme === "light" ? "table-primary" : "table-secondary"
+                  } align-middle table-hover table-borderless table-radius`}
+                >
+                  <thead className={`table-${
+                    theme === "light" ? "light" : "dark"
+                  } `}>
+                    <tr>
+                      <th scope="col">Shop</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Normal Price</th>
+                      <th scope="col">Platforms</th>
+                      <th scope="col">DRM</th>
+                      <th scope="col">Link</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {prices.map((price, index) => (
+                      <tr
+                        key={price.url}
+                        className={index === 0 ? "table-active" : ""}
+                      >
+                        <td>{price.shop.name}</td>
+                        <td>
+                          ${price.price.amount.toFixed(2)} ({price.cut}% off)
+                        </td>
+                        <td>${price.regular.amount.toFixed(2)}</td>
+                        <td>
                           {price.platforms
                             .map((platform) => platform.name)
                             .join(", ")}
-                        </p>
-                        <p className="price-info">
-                          <strong>DRM:</strong>{" "}
-                          {price.drm.map((d) => d.name).join(", ")}
-                        </p>
-                      </div>
-                      <a
-                        href={price.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="buy-button"
-                      >
-                        Buy on {price.shop.name}
-                      </a>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : (
-            <p>Game is either Free or was not found</p>
-          )}
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
-      {game && (
-        <GameCarousel
-          name={game.name}
-          popularity={game.popularity}
-          background_image={game.background_image}
-          short_screenshots={game.short_screenshots}
-          released={game.released}
-        />
-      )}
-    </div>
+                        </td>
+                        <td>{price.drm.map((d) => d.name).join(", ")}</td>
+                        <td>
+                          <a
+                            href={price.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-primary"
+                          >
+                            Buy on {price.shop.name}
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : (
+              <p>Game is either Free or was not found</p>
+            )}
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
+        {game && (
+          <GameCarousel
+            name={game.name}
+            popularity={game.popularity}
+            background_image={game.background_image}
+            short_screenshots={game.short_screenshots}
+            released={game.released}
+          />
+        )}
+      </div>
+    </>
   );
 }
 
 export default DetailsPage;
-
-//Make changes so that more shops are shown with param shops. Change country to canada as well

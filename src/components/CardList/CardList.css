@@ -41,25 +41,25 @@
     height: 75px; /* Set the image height for larger screens */
   }
   .card-title {
-    font-size: small;
+    font-size: smaller;
   }
 }
 
 @media (min-height: 576px) {
   .card-img-top {
-    height: 100px; /* Set the image height for larger screens */
+    height: 125px; /* Set the image height for larger screens */
   }
   .card-title {
-    font-size: smaller;
+    font-size: medium;
   }
 }
 
 @media (min-height: 768px) {
   .card-img-top {
-    height: 150px; /* Set the image height for larger screens */
+    height: 200px; /* Set the image height for larger screens */
   }
   .card-title {
-    font-size: medium;
+    font-size: large;
   }
 }
 
@@ -67,28 +67,28 @@
 
 @media (min-height: 992px) {
   .card-img-top {
-    height: 250px; /* Set the image height for larger screens */
-  }
-  .card-title {
-    font-size: large;
-  }
-}
-
-/* Adjust image size for even larger screens */
-@media (min-height: 1200px) {
-  .card-img-top {
-    height: 350px; /* Set the image height for even larger screens */
+    height: 300px; /* Set the image height for larger screens */
   }
   .card-title {
     font-size: larger;
   }
 }
 
-@media (min-height: 1400px) {
+/* Adjust image size for even larger screens */
+@media (min-height: 1200px) {
   .card-img-top {
-    height: 550px; /* Set the image height for even larger screens */
+    height: 425px; /* Set the image height for even larger screens */
   }
   .card-title {
-    font-size:x-large;
+    font-size: x-large;
+  }
+}
+
+@media (min-height: 1400px) {
+  .card-img-top {
+    height: 575px; /* Set the image height for even larger screens */
+  }
+  .card-title {
+    font-size:xx-large;
   }
 }
