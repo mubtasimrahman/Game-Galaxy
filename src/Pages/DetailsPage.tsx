@@ -129,7 +129,7 @@ function DetailsPage() {
       <h1  className={`heading ${theme==="light"?styles.lightMode:styles.darkMode}`}>{game?.name}</h1>
       <div className="d-flex justify-content-around">
         {loading ? (
-          <p>Loading prices...</p>
+          <h3 className={`padding ${theme==="light"?styles.lightMode:styles.darkMode}`}>Loading prices...</h3>
         ) : game ? (
           <>
             {prices && prices.length > 0 ? (
@@ -184,7 +184,7 @@ function DetailsPage() {
                 </table>
               </>
             ) : (
-              <p>Game is either Free or was not found</p>
+              <h2 className={`padding ${theme==="light"?styles.lightMode:styles.darkMode}`}>Game is either Free or was not found</h2>
             )}
           </>
         ) : (
