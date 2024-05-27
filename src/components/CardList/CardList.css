@@ -35,60 +35,72 @@
 .btn:active {
   transform: scale(0.95);
 }
+.item-buttons .btn{
+  padding:3%
+}
 
-@media (max-height: 575px) {
+/* Extra small screens */
+@media (max-height: 575px), (max-width: 575px) {
   .card-img-top {
-    height: 75px; /* Set the image height for larger screens */
+    height: 75px; /* Set the image height for the smallest screens */
+  }
+  .card-title {
+    font-size: xx-small;
+  }
+}
+
+/* Small screens */
+@media (min-height: 576px) and (max-height: 767px),
+       (min-width: 576px) and (max-width: 767px) {
+  .card-img-top {
+    height: 100px; /* Set the image height for small screens */
+  }
+  .card-title {
+    font-size: x-small;
+  }
+}
+
+/* Medium screens */
+@media (min-height: 768px) and (max-height: 991px),
+       (min-width: 768px) and (max-width: 991px) {
+  .card-img-top {
+    height: 125px; /* Set the image height for medium screens */
   }
   .card-title {
     font-size: smaller;
   }
 }
 
-@media (min-height: 576px) {
+/* Large screens */
+@media (min-height: 992px) and (max-height: 1199px),
+       (min-width: 992px) and (max-width: 1199px) {
   .card-img-top {
-    height: 125px; /* Set the image height for larger screens */
+    height: 150px; /* Set the image height for large screens */
   }
   .card-title {
     font-size: medium;
   }
 }
 
-@media (min-height: 768px) {
+/* Extra large screens */
+@media (min-height: 1200px) and (max-height: 1399px),
+       (min-width: 1200px) and (max-width: 1399px) {
   .card-img-top {
-    height: 200px; /* Set the image height for larger screens */
+    height: 200px; /* Set the image height for extra large screens */
   }
   .card-title {
     font-size: large;
   }
 }
 
-
-
-@media (min-height: 992px) {
+/* XXL screens */
+@media (min-height: 1400px), (min-width: 1400px) {
   .card-img-top {
-    height: 300px; /* Set the image height for larger screens */
+    height: 250px; /* Set the image height for the largest screens */
   }
   .card-title {
     font-size: larger;
   }
 }
 
-/* Adjust image size for even larger screens */
-@media (min-height: 1200px) {
-  .card-img-top {
-    height: 425px; /* Set the image height for even larger screens */
-  }
-  .card-title {
-    font-size: x-large;
-  }
-}
 
-@media (min-height: 1400px) {
-  .card-img-top {
-    height: 575px; /* Set the image height for even larger screens */
-  }
-  .card-title {
-    font-size:xx-large;
-  }
-}
