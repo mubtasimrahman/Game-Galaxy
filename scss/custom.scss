@@ -1,35 +1,57 @@
+// scss-docs-start import-stack
+// Configuration
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/variables-dark";
+
 $table-variants: (
-  "primary":    shift-color($gray-100, $table-bg-scale),
-  "secondary":  shift-color($gray-900, $table-bg-scale),
+  "primary":    shift-color($primary, $table-bg-scale),
+  "secondary":  shift-color($secondary, $table-bg-scale),
   "success":    shift-color($success, $table-bg-scale),
   "info":       shift-color($info, $table-bg-scale),
   "warning":    shift-color($warning, $table-bg-scale),
   "danger":     shift-color($danger, $table-bg-scale),
-  "light":      $gray-600,
-  "dark":       $gray-700,
+  "light":      $light,
+  "dark":       $dark,
 );
 
+
 $custom-colors: (
-  "secondary-custom": #6c757d
+  "custom-body-dark": shift-color($gray-900, $table-bg-scale),
+  "custom-body-light":shift-color($gray-100, $table-bg-scale),
+  "custom-header-dark": $gray-800,
+  "custom-header-light":$gray-600,
+
 );
 
 // Merge the maps
 $table-variants: map-merge($table-variants, $custom-colors);
 
-
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/variables-dark";
 @import "../node_modules/bootstrap/scss/maps";
 @import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/utilities";
+
+
+// Layout & components
 @import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
 @import "../node_modules/bootstrap/scss/tables";
 @import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/dropdown";
 @import "../node_modules/bootstrap/scss/nav";
 @import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/list-group";
 @import "../node_modules/bootstrap/scss/card";
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/carousel";
+@import "../node_modules/bootstrap/scss/offcanvas";
 
-//dont include everything, as in the last import
+
+// Helpers
+@import "../node_modules/bootstrap/scss/helpers";
+
+// Utilities
+@import "../node_modules/bootstrap/scss/utilities/api";
+// scss-docs-end import-stack

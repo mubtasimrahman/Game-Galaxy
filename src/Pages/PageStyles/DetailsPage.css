@@ -1,55 +1,56 @@
 .prices-list {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .price-item {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: #f9f9f9;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
 }
 
 .price-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .price-shop-name {
-    margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem 0;
 }
 
 .price-info {
-    margin: 0;
+  margin: 0;
 }
 
 .buy-button {
-    padding: 0.5rem 1rem;
-    background: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
-.heading{
-    text-align: center;
-    font-weight:900;
-    
+.heading {
+  text-align: center;
+  font-weight: 900;
 }
 
 .table-radius {
-    height: min-content;
-    overflow: hidden;
-    border-radius: 20px;
-    transform: rotate(0deg);
-    margin:2%
-  }
+  height: min-content;
+  overflow: hidden;
+  border-radius: 20px;
+  transform: rotate(0deg);
+  margin: 2%;
+}
 
-  .padding{
-    padding:2%;
-    font-weight: 800;
-  }
-  
- 
+.padding {
+  padding: 2%;
+  font-weight: 800;
+}
+
+.table{
+    margin:0 !important;
+}

@@ -134,14 +134,14 @@ function DetailsPage() {
         ) : game ? (
           <>
             {prices && prices.length > 0 ? (
-              <>
+              <div className="table-responsive table-radius">
                 <table
-                  className={`table ${
-                    theme === "light" ? "table-primary" : "table-secondary"
-                  } align-middle table-hover table-borderless table-radius`}
+                  className={`table table-${
+                    theme === "light" ? "custom-body-light" : "custom-body-dark"
+                  } align-middle table-hover table-borderless `}
                 >
                   <thead className={`table-${
-                    theme === "light" ? "light" : "dark"
+                    theme === "light" ? "custom-header-light" : "custom-header-dark"
                   } `}>
                     <tr>
                       <th scope="col">Shop</th>
@@ -183,7 +183,7 @@ function DetailsPage() {
                     ))}
                   </tbody>
                 </table>
-              </>
+              </div>
             ) : (
               <h2 className={`padding ${theme==="light"?styles.lightMode:styles.darkMode}`}>Game is either Free or was not found</h2>
             )}
