@@ -6,6 +6,7 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import GameCarousel from "../components/GameCarousel/GameCarousel";
 import "./PageStyles/DetailsPage.css";
 import styles from "./PageStyles/DetailsPage.module.css"
+import "../../scss/custom.scss"
 
 interface Price {
   cut: number;

@@ -11,6 +11,7 @@ import { PageContext } from "../contexts/PageContext";
 import styles from "./App.module.css";
 import { DataForm } from "../components/Form/Form";
 import "./App.css";
+import "../../scss/custom.scss"
 
 export interface Games {
   title: string;

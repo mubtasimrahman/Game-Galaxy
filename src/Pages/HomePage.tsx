@@ -17,7 +17,7 @@ function HomePage({ handleThemeChange, submittedData }: Props) {
 
   const [searchValue, setSearchValue] = useState("");
 
-  /*useEffect used to "contain" side effects which would otherwise make 
+  /*useEffect used to "contain" side effects(last resort) and effects which would otherwise make 
   components impure like changing state of DOM outside of REACT,Mutating(changing) 
   the input itself or fetching data. This is called after every new render and is 
   called setup. Optional cleanup function called after 
