@@ -38,6 +38,7 @@ $table-variants: map-merge($table-variants, $custom-colors);
 @import "../node_modules/bootstrap/scss/containers";
 @import "../node_modules/bootstrap/scss/grid";
 @import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/forms";
 @import "../node_modules/bootstrap/scss/buttons";
 @import "../node_modules/bootstrap/scss/transitions";
 @import "../node_modules/bootstrap/scss/dropdown";
@@ -47,6 +48,8 @@ $table-variants: map-merge($table-variants, $custom-colors);
 @import "../node_modules/bootstrap/scss/card";
 @import "../node_modules/bootstrap/scss/carousel";
 @import "../node_modules/bootstrap/scss/offcanvas";
+@import "../node_modules/bootstrap/scss/close";
+// @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 
 // Helpers

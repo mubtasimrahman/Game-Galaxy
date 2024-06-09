@@ -72,7 +72,6 @@ function NavBar({
       // Only render if userName is defined
       return <span className={styles.submittedName}>Hello {userName} !</span>;
     }
-    return userName;
   };
 
   return (
@@ -92,6 +91,13 @@ function NavBar({
                 className={`btn ${styles.buttonSpacingRight}`}
                 type="button"
                 onClick={handleNavigate}
+                aria-label={
+                  currentPage === "/"
+                    ? "Leave a Review"
+                    : currentPage === "/Review"
+                    ? "Go Back to HomePage"
+                    : "Go Back to HomePage"
+                }
                 data-tooltip-id="first-tooltip"
                 data-tooltip-variant={theme === "dark" ? "light" : "dark"}
                 data-tooltip-content={
@@ -137,6 +143,9 @@ function NavBar({
                 className="btn "
                 type="button"
                 onClick={handleNavigateV2}
+                aria-label={
+                  currentPage === "/" ? "Sign Up or Log In" : "Leave a Review"
+                }
                 data-tooltip-id="second-tooltip"
                 data-tooltip-variant={theme === "dark" ? "light" : "dark"}
                 data-tooltip-content={
@@ -178,8 +187,11 @@ function NavBar({
                 <div className={`${styles.searchBox} `}>
                   <button
                     className={styles.btnSearch}
+                    aria-label="Search Games"
+                    type="button"
                     data-tooltip-id="third-tooltip"
                     data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                    data-tooltip-place= "bottom"
                     data-tooltip-content="Search Games"
                   >
                     <FaSearch
@@ -208,13 +220,14 @@ function NavBar({
               )}
             </div>
 
-            <div>{DisplayName()}</div>
+            {DisplayName()}
             <div>
               {currentPage === "/" && (
                 <>
                   <button
                     className="btn "
                     type="button"
+                    aria-label="Donate"
                     data-tooltip-id="fourth-tooltip"
                     data-tooltip-variant={theme === "dark" ? "light" : "dark"}
                     data-tooltip-content="Donate"
@@ -239,6 +252,11 @@ function NavBar({
                 onClick={() => {
                   handleThemeChange();
                 }}
+                aria-label={
+                  theme === "dark"
+                    ? "Switch Themes - Currently Dark Mode"
+                    : "Switch Themes - Currently Light Mode"
+                }
                 data-tooltip-id="fifth-tooltip"
                 data-tooltip-variant={theme === "dark" ? "light" : "dark"}
                 data-tooltip-content={
@@ -264,6 +282,7 @@ function NavBar({
               <button
                 className={`btn ${styles.buttonSpacingLeft}`}
                 type="button"
+                aria-label="Shopping Cart"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasCart"
                 aria-controls="offcanvasCart"
