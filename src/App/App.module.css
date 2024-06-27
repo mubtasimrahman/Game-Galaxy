@@ -1,11 +1,4 @@
-.darkMode {
-  background-color: var(--dark-mode-background);
-  min-height: 100vh;
+.padding {
   padding-top: 2%;
 }
 
-.lightMode {
-  background-color: var(--light-mode-background);
-  min-height: 100vh;
-  padding-top: 2%;
-}

@@ -5,4 +5,9 @@
   --light-mode-button: rgba(92, 103, 109);
   --light-mode-background: #f0f8ff;
   --dark-mode-background:rgb(33, 37, 41);
+  --dark-mode: rgba(245, 245, 245, 0.75);
+  --light-mode: rgba(0, 0, 0, 0.75);
+}
+body {
+  background-color: var(--dark-mode-background);
 }

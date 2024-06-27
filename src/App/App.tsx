@@ -11,7 +11,7 @@ import { PageContext } from "../contexts/PageContext";
 import styles from "./App.module.css";
 import { DataForm } from "../components/Form/Form";
 import "./App.css";
-import "../../scss/custom.scss"
+import "../../scss/custom.scss";
 
 export interface Games {
   title: string;
@@ -28,11 +28,16 @@ function App() {
   const [submittedData, setSubmittedData] = useState<DataForm | null>(null);
 
   const handleThemeChange = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.body.style.backgroundColor =
+      newTheme === "dark"
+        ? "var(--dark-mode-background)"
+        : "var(--light-mode-background)";
   };
 
   return (
-    <div className={theme === "dark" ? styles.darkMode : styles.lightMode}>
+    <div className={styles.padding}>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <QuantityContext.Provider value={{ gameQuantities, setGameQuantities }}>
           <PageContext.Provider value={{ currentPage, setCurrentPage }}>
@@ -71,10 +76,7 @@ function App() {
                     />
                   }
                 ></Route>
-                <Route
-                  path="/PayPal"
-                  element={<PayPal></PayPal>}
-                ></Route>
+                <Route path="/PayPal" element={<PayPal></PayPal>}></Route>
                 <Route
                   path="/details/:id"
                   element={<DetailsPage></DetailsPage>}

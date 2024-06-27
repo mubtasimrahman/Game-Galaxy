@@ -82,106 +82,110 @@ function NavBar({
           className={`navbar bg-${
             theme === "dark" ? "dark" : "light"
           } bg-gradient border-bottom`}
-          data-bs-theme="dark"
+          data-bs-theme={theme=== "dark"? "dark":"light"}
           style={{ flex: 1 }}
         >
           <div className="container-fluid  ">
             <div>
-              <button
-                className={`btn ${styles.buttonSpacingRight}`}
-                type="button"
-                onClick={handleNavigate}
-                aria-label={
-                  currentPage === "/"
-                    ? "Leave a Review"
-                    : currentPage === "/Review"
-                    ? "Go Back to HomePage"
-                    : "Go Back to HomePage"
-                }
-                data-tooltip-id="first-tooltip"
-                data-tooltip-variant={theme === "dark" ? "light" : "dark"}
-                data-tooltip-content={
-                  currentPage === "/"
-                    ? "Leave a Review"
-                    : currentPage === "/Review"
-                    ? "Go Back to HomePage"
-                    : "Go Back to HomePage"
-                }
-              >
+              <>
+                <button
+                  className={`btn ${styles.buttonSpacingRight}`}
+                  type="button"
+                  onClick={handleNavigate}
+                  aria-label={
+                    currentPage === "/"
+                      ? "Leave a Review"
+                      : currentPage === "/Review"
+                      ? "Go Back to HomePage"
+                      : "Go Back to HomePage"
+                  }
+                  data-tooltip-id="first-tooltip"
+                  data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                  data-tooltip-content={
+                    currentPage === "/"
+                      ? "Leave a Review"
+                      : currentPage === "/Review"
+                      ? "Go Back to HomePage"
+                      : "Go Back to HomePage"
+                  }
+                >
+                  {currentPage === "/" ? (
+                    <BiSolidCommentDots
+                      className={
+                        theme === "dark"
+                          ? styles.darkModeButton
+                          : styles.lightModeButton
+                      }
+                      size={35}
+                    />
+                  ) : currentPage === "/Review" ? (
+                    <HiHome
+                      className={
+                        theme === "dark"
+                          ? styles.darkModeButton
+                          : styles.lightModeButton
+                      }
+                      size={35}
+                    />
+                  ) : (
+                    <HiHome
+                      className={
+                        theme === "dark"
+                          ? styles.darkModeButton
+                          : styles.lightModeButton
+                      }
+                      size={35}
+                    />
+                  )}
+                </button>
                 <Tooltip id="first-tooltip" />
-                {currentPage === "/" ? (
-                  <BiSolidCommentDots
-                    className={
-                      theme === "dark"
-                        ? styles.darkModeButton
-                        : styles.lightModeButton
-                    }
-                    size={35}
-                  />
-                ) : currentPage === "/Review" ? (
-                  <HiHome
-                    className={
-                      theme === "dark"
-                        ? styles.darkModeButton
-                        : styles.lightModeButton
-                    }
-                    size={35}
-                  />
-                ) : (
-                  <HiHome
-                    className={
-                      theme === "dark"
-                        ? styles.darkModeButton
-                        : styles.lightModeButton
-                    }
-                    size={35}
-                  />
-                )}
-              </button>
+              </>
 
-              <button
-                className="btn "
-                type="button"
-                onClick={handleNavigateV2}
-                aria-label={
-                  currentPage === "/" ? "Sign Up or Log In" : "Leave a Review"
-                }
-                data-tooltip-id="second-tooltip"
-                data-tooltip-variant={theme === "dark" ? "light" : "dark"}
-                data-tooltip-content={
-                  currentPage === "/" ? "Sign Up or Log In" : "Leave a Review"
-                }
-              >
+              <>
+                <button
+                  className="btn "
+                  type="button"
+                  onClick={handleNavigateV2}
+                  aria-label={
+                    currentPage === "/" ? "Sign Up or Log In" : "Leave a Review"
+                  }
+                  data-tooltip-id="second-tooltip"
+                  data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                  data-tooltip-content={
+                    currentPage === "/" ? "Sign Up or Log In" : "Leave a Review"
+                  }
+                >
+                  {currentPage === "/" ? (
+                    <SiGnuprivacyguard
+                      className={
+                        theme === "dark"
+                          ? styles.darkModeButton
+                          : styles.lightModeButton
+                      }
+                      size={35}
+                    />
+                  ) : currentPage === "/Review" ? (
+                    <SiGnuprivacyguard
+                      className={
+                        theme === "dark"
+                          ? styles.darkModeButton
+                          : styles.lightModeButton
+                      }
+                      size={35}
+                    />
+                  ) : (
+                    <BiSolidCommentDots
+                      className={
+                        theme === "dark"
+                          ? styles.darkModeButton
+                          : styles.lightModeButton
+                      }
+                      size={35}
+                    />
+                  )}
+                </button>
                 <Tooltip id="second-tooltip" />
-                {currentPage === "/" ? (
-                  <SiGnuprivacyguard
-                    className={
-                      theme === "dark"
-                        ? styles.darkModeButton
-                        : styles.lightModeButton
-                    }
-                    size={35}
-                  />
-                ) : currentPage === "/Review" ? (
-                  <SiGnuprivacyguard
-                    className={
-                      theme === "dark"
-                        ? styles.darkModeButton
-                        : styles.lightModeButton
-                    }
-                    size={35}
-                  />
-                ) : (
-                  <BiSolidCommentDots
-                    className={
-                      theme === "dark"
-                        ? styles.darkModeButton
-                        : styles.lightModeButton
-                    }
-                    size={35}
-                  />
-                )}
-              </button>
+              </>
 
               {currentPage === "/" ? (
                 <div className={`${styles.searchBox} `}>
@@ -191,7 +195,7 @@ function NavBar({
                     type="button"
                     data-tooltip-id="third-tooltip"
                     data-tooltip-variant={theme === "dark" ? "light" : "dark"}
-                    data-tooltip-place= "bottom"
+                    data-tooltip-place="bottom"
                     data-tooltip-content="Search Games"
                   >
                     <FaSearch
@@ -246,65 +250,71 @@ function NavBar({
                 </>
               )}
 
-              <button
-                className="btn "
-                type="button"
-                onClick={() => {
-                  handleThemeChange();
-                }}
-                aria-label={
-                  theme === "dark"
-                    ? "Switch Themes - Currently Dark Mode"
-                    : "Switch Themes - Currently Light Mode"
-                }
-                data-tooltip-id="fifth-tooltip"
-                data-tooltip-variant={theme === "dark" ? "light" : "dark"}
-                data-tooltip-content={
-                  theme === "dark"
-                    ? "Switch Themes - Currently Dark Mode"
-                    : "Switch Themes - Currently Light Mode"
-                }
-              >
-                <Tooltip id="fifth-tooltip" />
-                {theme === "light" && (
-                  <MdNightlight
-                    size={35}
-                    className={styles.lightModeButton}
-                  ></MdNightlight>
-                )}
-                {theme === "dark" && (
-                  <MdLightMode
-                    size={35}
-                    className={styles.darkModeButton}
-                  ></MdLightMode>
-                )}
-              </button>
-              <button
-                className={`btn ${styles.buttonSpacingLeft}`}
-                type="button"
-                aria-label="Shopping Cart"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasCart"
-                aria-controls="offcanvasCart"
-                data-tooltip-id="sixth-tooltip"
-                data-tooltip-variant={theme === "dark" ? "light" : "dark"}
-                data-tooltip-content="Shopping Cart"
-              >
-                <Tooltip id="sixth-tooltip" />
-                <AiOutlineShoppingCart
-                  size={35}
-                  className={
+              <>
+                <button
+                  className="btn "
+                  type="button"
+                  onClick={() => {
+                    handleThemeChange();
+                  }}
+                  aria-label={
                     theme === "dark"
-                      ? styles.darkModeButton
-                      : styles.lightModeButton
+                      ? "Switch Themes - Currently Dark Mode"
+                      : "Switch Themes - Currently Light Mode"
                   }
-                ></AiOutlineShoppingCart>
-              </button>
+                  data-tooltip-id="fifth-tooltip"
+                  data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                  data-tooltip-content={
+                    theme === "dark"
+                      ? "Switch Themes - Currently Dark Mode"
+                      : "Switch Themes - Currently Light Mode"
+                  }
+                >
+                  {theme === "light" && (
+                    <MdNightlight
+                      size={35}
+                      className={styles.lightModeButton}
+                    ></MdNightlight>
+                  )}
+                  {theme === "dark" && (
+                    <MdLightMode
+                      size={35}
+                      className={styles.darkModeButton}
+                    ></MdLightMode>
+                  )}
+                </button>
+                <Tooltip id="fifth-tooltip" />
+              </>
+
+              <>
+                <button
+                  className={`btn ${styles.buttonSpacingLeft}`}
+                  type="button"
+                  aria-label="Shopping Cart"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasCart"
+                  aria-controls="offcanvasCart"
+                  data-tooltip-id="sixth-tooltip"
+                  data-tooltip-variant={theme === "dark" ? "light" : "dark"}
+                  data-tooltip-content="Shopping Cart"
+                >
+                  <AiOutlineShoppingCart
+                    size={35}
+                    className={
+                      theme === "dark"
+                        ? styles.darkModeButton
+                        : styles.lightModeButton
+                    }
+                  ></AiOutlineShoppingCart>
+                </button>
+                <Tooltip id="sixth-tooltip" />
+              </>
             </div>
           </div>
 
           <div
-            className={`offcanvas offcanvas-end ${styles.Canvas}`}
+            className="offcanvas offcanvas-end"
+
             tabIndex={-1}
             id="offcanvasCart"
             aria-labelledby="offcanvasExampleLabel"

@@ -18,9 +18,9 @@ function HomePage({ handleThemeChange, submittedData }: Props) {
   const [searchValue, setSearchValue] = useState("");
 
   /*useEffect used to "contain" side effects(last resort) and effects which would otherwise make 
-  components impure like changing state of DOM outside of REACT,Mutating(changing) 
-  the input itself or fetching data. This is called after every new render and is 
-  called setup. Optional cleanup function called after 
+  components impure like changing state of DOM outside of REACT, changing values declared outside 
+  of rendering,Mutating(changing) the input itself or fetching data. This is called after every 
+  new render and is called setup. Optional cleanup function called after 
   component is dismounted. In strict mode, one extra 
   cycle called during when mounting/dismounting, including inital one,
   but not in subsequent dependency changes. In dependency changes , 
