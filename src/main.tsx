@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 // import "bootstrap/dist/css/bootstrap.css"; //originally imported index.css
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "../scss/custom.scss"
 import App from "./App/App";
 
 //Using ReactDOM library to render a component tree inside an html element with id "root"
