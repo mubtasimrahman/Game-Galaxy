@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CardList.css";
-import { BsFillCartDashFill, BsFillCartPlusFill } from "react-icons/Bs";
+import { BsFillCartDashFill, BsFillCartPlusFill } from "react-icons/bs";
 import styles from "./CardList.module.css";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useContext } from "react";

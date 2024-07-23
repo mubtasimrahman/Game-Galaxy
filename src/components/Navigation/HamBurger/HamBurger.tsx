@@ -1,10 +1,10 @@
 import { ThemeContext } from "../../../contexts/ThemeContext";
 import { useContext, useState } from "react";
 import "./HamBurger.css";
-import { IoIosArrowDropdownCircle } from "react-icons/Io";
+import { IoIosArrowDropdownCircle } from "react-icons/io";
 import styles from "../NavBar/NavBar.module.css";
-import { SiGnuprivacyguard } from "react-icons/Si";
-import { BiSolidCommentDots } from "react-icons/Bi";
+import { SiGnuprivacyguard } from "react-icons/si";
+import { BiSolidCommentDots } from "react-icons/bi";
 
 function HamBurger() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
