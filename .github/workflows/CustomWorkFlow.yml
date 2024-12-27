@@ -20,6 +20,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Start JSON Server
+        run: json-server --watch db.json 
+
       - name: Archive artifact
         uses: actions/upload-pages-artifact@v3
         with:
