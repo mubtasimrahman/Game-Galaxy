@@ -53,7 +53,7 @@ function Review() {
     const controller = new AbortController();
     setLoading(true);
     axios
-      .get<Review[]>("http://192.168.0.61:3000/reviews", {
+      .get<Review[]>("http://localhost:3000/reviews", {
         signal: controller.signal,
       })
       .then((response) => {
@@ -90,7 +90,7 @@ function Review() {
 
       axios
         .put<Review>(
-          `http://192.168.0.61:3000/reviews/${editingReview.id}`,
+          `http://localhost:3000/reviews/${editingReview.id}`,
           formData
         )
         .then((response) => {
@@ -131,7 +131,7 @@ function Review() {
 
       // Make an Axios POST request to add the new review
       axios
-        .post<Review>("http://192.168.0.61:3000/reviews", newReview)
+        .post<Review>("http://localhost:3000/reviews", newReview)
         //this response only returns newReview
         .then((response) => {
           // Update the reviews state with the new review
@@ -177,7 +177,7 @@ function Review() {
     const originalReviews = [...reviews];
     setReviews(reviews.filter((r) => r.id !== review.id));
     // Make an Axios DELETE request to remove the review
-    axios.delete(`http://192.168.0.61:3000/reviews/${review.id}`).catch((err) => {
+    axios.delete(`http://localhost:3000/reviews/${review.id}`).catch((err) => {
       console.error("Error deleting review:", err);
       setError(err.message);
       setReviews(originalReviews);
