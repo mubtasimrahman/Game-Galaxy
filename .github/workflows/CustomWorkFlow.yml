@@ -20,9 +20,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Start JSON Server
-        run: npm run start
-
       - name: Archive artifact
         uses: actions/upload-pages-artifact@v3
         with:
