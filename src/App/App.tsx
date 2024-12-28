@@ -1,9 +1,9 @@
 import HomePage from "../Pages/HomePage";
-import { useState } from "react";
-import ReviewPage from "../Pages/ReviewPage";
-import SignUpPage from "../Pages/SignUpPage";
-import DetailsPage from "../Pages/DetailsPage";
-import PayPal from "../components/PayPal/PayPal";
+import { useState,lazy } from "react";
+const ReviewPage = lazy(() => import('../Pages/ReviewPage'));
+const SignUpPage = lazy(() => import('../Pages/SignUpPage'));
+const DetailsPage = lazy(() => import('../Pages/DetailsPage'));
+const PayPal = lazy(() => import('../components/PayPal/PayPal'));
 import { Route, Routes, HashRouter } from "react-router-dom";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { QuantityContext } from "../contexts/QuantityContext";
